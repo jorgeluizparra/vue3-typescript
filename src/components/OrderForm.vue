@@ -10,7 +10,7 @@
         </Select>
         <Input v-model:value="order.volume" type="number" label="Quantity" />
         <br>
-        <button type="submit">Save</button>
+        <SubmitButton />
     </form>
 </template>
 <script lang="ts">
@@ -23,6 +23,13 @@ export default defineComponent({
     components: {
         Input: require("../components/inputs/Input").default,
         Select: require("../components/inputs/Select").default,
+        SubmitButton: require("../components/inputs/SubmitButton").default,
+    },
+    props: {
+        orderType: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {
@@ -38,7 +45,7 @@ export default defineComponent({
             ],
             order: {
                 productCode: "",
-                orderType: "buy",
+                orderType: this.orderType,
                 volume: "0"
             } as newOrderInterface,
         }
