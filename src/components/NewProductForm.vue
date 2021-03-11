@@ -2,7 +2,7 @@
     <form @submit.prevent="onSubmit">
         <Input v-model:value="product" type="text" label="Product name" />
         <br>
-        <button type="submit">Save</button>
+        <SubmitButton />
     </form>
 </template>
 
@@ -12,6 +12,7 @@ import { defineComponent } from "vue";
 export default defineComponent({
     components: {
         Input: require("../components/inputs/Input").default,
+        SubmitButton: require("../components/inputs/SubmitButton").default,
     },
     data() {
         return {
@@ -26,27 +27,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-@import '../assets/_style.scss';
-input {
-    width: 50vw;
-    border-radius: 10px;
-    height: 30px;
-    padding: 10px;
-    border: 2px solid $secondary;
-    margin-bottom: 20px;
-    &:focus {
-        outline: none;
-    }
-}
-button {
-    background-color: $primary;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    &:focus {
-        outline: none;
-    }
-}
-</style>
+<style lang="scss"></style>
