@@ -13,7 +13,7 @@ export default defineComponent({
     data() {
         return {
             header: {
-                text: "Home",
+                text: "Home Page",
                 color: "primary"
             } as headerInterface
         }
