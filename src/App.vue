@@ -1,21 +1,39 @@
 <template>
-  <Header :message="message" />
+  <Header :header="header" />
+  <Nav :pages="pages" />
+  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { messageInterface } from "@/interfaces/message";
+import { headerInterface } from "@/interfaces/header";
+import { navInterface } from "@/interfaces/nav";
 
 export default defineComponent({
   components: {
-    Header: require("@/components/Header").default
+    Header: require("@/components/Header").default,
+    Nav: require("@/components/Nav").default
   },
   data() {
     return {
-      message: {
-        text: "Stock manager system",
+      header: {
+        text: "Stock Manager System",
         color: "primary"
-      } as messageInterface
+      } as headerInterface,
+      pages: [
+        {
+          title: "Home",
+          route: "/"
+        },
+        {
+          title: "Purchasing",
+          route: "/purchasing"
+        },
+        {
+          title: "Sales",
+          route: "/sales"
+        }
+      ] as navInterface[]
     };
   }
 });
