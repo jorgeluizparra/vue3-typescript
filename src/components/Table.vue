@@ -1,19 +1,20 @@
 <template>
     <table>
         <tr>
-            <th>Code</th>
-            <th>Product</th>
-            <th>In stock</th>
+            <th 
+              v-for="(header, index) in headers" 
+              :key="index">
+                {{header.text}}
+            </th>
         </tr>
-        <tr>
-            <td>05465</td>
-            <td>Banana</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>05465</td>
-            <td>Banana</td>
-            <td>50</td>
+        <tr 
+          v-for="(item, index) in items" 
+          :key="index">
+            <td 
+              v-for="(header, index) in headers" 
+              :key="index">
+                {{ item[header.value] }}
+              </td>
         </tr>
     </table>
 </template>
@@ -24,7 +25,12 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     props: {
         headers: {
-            type: []
+            type: Array,
+            required: true
+        },
+        items: {
+            type: Array,
+            required: true
         }
     }
 });
@@ -40,6 +46,10 @@ table {
         background-color: $primary;
         color: white;
         padding: 13px 30px;
+    }
+    td {
+        padding: 10px;
+        border: 1px solid lightgray;
     }
 }
 </style>
