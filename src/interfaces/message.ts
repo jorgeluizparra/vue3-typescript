@@ -9,7 +9,7 @@
 //     Right = 4
 // }
 
-type textColor = "blue" | "black" | "green";
+type textColor = "primary" | "success" | "error";
 
 export interface messageInterface {
     text: string;

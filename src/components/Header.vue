@@ -14,13 +14,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.green {
-  color: green;
+@import "../assets/style.scss";
+.primary {
+  color: $primary;
 }
-.blue {
-  color: blue;
+.success {
+  color: $success;
 }
-.black {
-  color: black;
+.error {
+  color: $error;
 }
 </style>
