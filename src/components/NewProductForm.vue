@@ -1,14 +1,18 @@
 <template>
     <form @submit.prevent="onSubmit">
-        <input v-model="product" type="text" placeholder="Product name">
+        <Input v-model:value="product" type="text" label="Product name" />
         <br>
         <button type="submit">Save</button>
     </form>
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
+    components: {
+        Input: require("../components/inputs/Input").default,
+    },
     data() {
         return {
             product: ""
@@ -21,6 +25,7 @@ export default defineComponent({
     }
 });
 </script>
+
 <style lang="scss">
 @import '../assets/_style.scss';
 input {
