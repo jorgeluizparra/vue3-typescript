@@ -1,10 +1,9 @@
 <template>
-    <Header :header="header"/>
+    <Header :header="header" />
     <Tabs :tabs="tabs" v-model:tab="tab">
         <NewProductForm v-if="tab == 'Add product'" />
-        <BuyProductForm v-else />
+        <OrderForm orderType="buy" v-else />
     </Tabs>
-    <Table />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -17,8 +16,7 @@ export default defineComponent({
         Header: require('@/components/Header').default,
         Tabs: require('@/components/Tabs').default,
         NewProductForm: require('@/components/NewProductForm').default,
-        BuyProductForm: require('@/components/BuyProductForm').default,
-        Table: require('@/components/Table').default
+        OrderForm: require('@/components/OrderForm').default,
     },
     data() {
         return {
