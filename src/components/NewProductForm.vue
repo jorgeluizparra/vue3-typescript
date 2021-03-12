@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
 
 export default defineComponent({
     components: {
@@ -20,9 +21,13 @@ export default defineComponent({
         }
     },
     methods: {
+        ...mapActions(["createProduct", "getProducts"]),
         onSubmit () {
-            console.log(this.product);
+            this.createProduct(this.product)
         }
+    },
+    mounted() {
+        this.getProducts()
     }
 });
 </script>

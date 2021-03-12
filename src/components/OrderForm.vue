@@ -2,9 +2,9 @@
     <form @submit.prevent="onSubmit">
         <Select v-model:value="order.productCode">
             <option 
-              v-for="(product, index) in products" 
-              :key="index" 
-              :value="product.code">
+              v-for="(product) in showProducts" 
+              :key="product.id" 
+              :value="product.id">
                 {{product.name}}
             </option>
         </Select>
@@ -18,6 +18,9 @@ import { defineComponent } from "vue";
 
 // Interfaces
 import { newOrderInterface } from '@/interfaces/newOrder';
+
+// Vuex
+import { mapGetters } from 'vuex';
 
 export default defineComponent({
     components: {
@@ -33,16 +36,6 @@ export default defineComponent({
     },
     data() {
         return {
-            products: [
-                {
-                    name: "Banana",
-                    code: "045698"
-                },
-                {
-                    name: "Manga",
-                    code: "089698"
-                }
-            ],
             order: {
                 productCode: "",
                 orderType: this.orderType,
@@ -54,6 +47,9 @@ export default defineComponent({
         onSubmit () {
             console.log(this.order);
         }
+    },
+    computed: {
+        ...mapGetters(['showProducts'])
     }
 });
 </script>
